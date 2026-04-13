@@ -12,6 +12,51 @@ export const hero = {
   ctaSecondary: 'How it works',
 } as const;
 
+// TODO: replace when real audio is recorded
+export const heroVoiceDemo = {
+  audioSrc: '/audio/audagen-intro.mp3',
+  label: 'MEET AUDAGEN',
+  duration: 18, // seconds, approximate
+  transcript: [
+    { start: 0.0,  end: 2.5,  text: "Hey, this is Audagen." },
+    { start: 2.5,  end: 5.5,  text: "Your AI voice assistant for service businesses." },
+    { start: 5.5,  end: 9.0,  text: "I sound natural, I answer every call," },
+    { start: 9.0,  end: 12.5, text: "and I book appointments straight to your calendar." },
+    { start: 12.5, end: 17.0, text: "Around the clock. Every day. Never a missed customer." },
+  ],
+} as const;
+
+// TODO: replace when real audio is recorded
+export const liveCallDemo = {
+  audioSrc: '/audio/audagen-booking-demo.mp3',
+  callerName: 'Incoming call',
+  callerContext: 'New customer \u00B7 first time booking',
+  duration: 45,
+  transcript: [
+    { start: 0.0,  end: 3.0,  speaker: 'audagen' as const, text: "Hi, thanks for calling Audagen. How can I help you today?" },
+    { start: 3.0,  end: 7.5,  speaker: 'caller' as const,  text: "Hey, I'd like to book an appointment for next week if possible." },
+    { start: 7.5,  end: 11.0, speaker: 'audagen' as const, text: "Of course. What day works best for you?" },
+    { start: 11.0, end: 15.5, speaker: 'caller' as const,  text: "Tuesday afternoon would be ideal." },
+    { start: 15.5, end: 21.0, speaker: 'audagen' as const, text: "I have Tuesday at 2pm or 4pm available. Which do you prefer?" },
+    { start: 21.0, end: 24.0, speaker: 'caller' as const,  text: "Let's go with 2pm." },
+    { start: 24.0, end: 30.0, speaker: 'audagen' as const, text: "Booked. You'll get a confirmation text shortly. Anything else I can help with?" },
+    { start: 30.0, end: 33.0, speaker: 'caller' as const,  text: "No, that's perfect. Thanks." },
+    { start: 33.0, end: 38.0, speaker: 'audagen' as const, text: "You're welcome. Have a great day." },
+  ],
+  outcome: {
+    title: 'Appointment booked',
+    details: 'Tuesday \u00B7 2:00 PM',
+    confirmationSent: true,
+  },
+} as const;
+
+export type TranscriptLine = {
+  start: number;
+  end: number;
+  text: string;
+  speaker?: 'audagen' | 'caller';
+};
+
 export const howItWorks = {
   eyebrow: 'HOW IT WORKS',
   headline: 'Three steps. Zero missed calls.',

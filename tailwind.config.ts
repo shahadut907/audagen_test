@@ -30,21 +30,18 @@ const config: Config = {
       keyframes: {
         'drift-1': {
           '0%, 100%': { transform: 'translate(0%, 0%) scale(1)' },
-          '25%': { transform: 'translate(5%, -3%) scale(1.05)' },
-          '50%': { transform: 'translate(-3%, 5%) scale(0.95)' },
-          '75%': { transform: 'translate(-5%, -2%) scale(1.03)' },
+          '33%':      { transform: 'translate(8%, 6%) scale(1.1)' },
+          '66%':      { transform: 'translate(-4%, 10%) scale(0.95)' },
         },
         'drift-2': {
           '0%, 100%': { transform: 'translate(0%, 0%) scale(1)' },
-          '25%': { transform: 'translate(-4%, 4%) scale(1.03)' },
-          '50%': { transform: 'translate(5%, -5%) scale(0.97)' },
-          '75%': { transform: 'translate(3%, 3%) scale(1.05)' },
+          '33%':      { transform: 'translate(-10%, 5%) scale(1.05)' },
+          '66%':      { transform: 'translate(6%, -8%) scale(1.1)' },
         },
         'drift-3': {
           '0%, 100%': { transform: 'translate(0%, 0%) scale(1)' },
-          '25%': { transform: 'translate(3%, 5%) scale(0.97)' },
-          '50%': { transform: 'translate(-5%, -3%) scale(1.05)' },
-          '75%': { transform: 'translate(4%, -4%) scale(1)' },
+          '33%':      { transform: 'translate(5%, -7%) scale(0.95)' },
+          '66%':      { transform: 'translate(-8%, -4%) scale(1.08)' },
         },
         'pulse-ring': {
           '0%': { transform: 'scale(1)', opacity: '0.6' },
@@ -53,9 +50,9 @@ const config: Config = {
         },
       },
       animation: {
-        'drift-1': 'drift-1 25s ease-in-out infinite',
-        'drift-2': 'drift-2 28s ease-in-out infinite',
-        'drift-3': 'drift-3 30s ease-in-out infinite',
+        'drift-1': 'drift-1 28s ease-in-out infinite',
+        'drift-2': 'drift-2 32s ease-in-out infinite',
+        'drift-3': 'drift-3 36s ease-in-out infinite',
         'pulse-ring': 'pulse-ring 3s ease-in-out infinite',
       },
     },
