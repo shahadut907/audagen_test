@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Phone, PhoneOff, Play, Pause, RotateCcw, CheckCircle2, Loader2 } from 'lucide-react';
 import { liveCallDemo, type TranscriptLine } from '@/app/_content/site';
 import Waveform from '@/app/_components/ui/Waveform';
@@ -12,12 +12,20 @@ type CallState = 'idle' | 'ringing' | 'connected' | 'ended' | 'replay';
 
 export default function LiveCallDemo() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [callState, setCallState] = useState<CallState>('idle');
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [audioError, setAudioError] = useState(false);
   const ringTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const endTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Scroll progress for the thin accent bar
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const progress = useTransform(scrollYProgress, [0.2, 0.8], [0, 100]);
 
   // Create audio element
   useEffect(() => {
@@ -138,29 +146,40 @@ export default function LiveCallDemo() {
   return (
     <section
       id="live-demo"
-      className="py-24 md:py-40 px-6"
+      ref={sectionRef}
+      className="relative py-24 md:py-32 px-6 bg-bg"
       aria-label="Live demo"
     >
+      {/* Scroll progress bar */}
+      <motion.div
+        className="absolute top-0 left-0 h-[2px] bg-accent origin-left"
+        style={{ width: useTransform(progress, (v) => `${v}%`) }}
+      />
+
       <div className="max-w-4xl mx-auto">
         {/* Section heading */}
-        <Reveal>
-          <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-12 md:mb-16">
+          <Reveal delay={0}>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
               <span className="text-caption text-accent font-medium">
                 LIVE DEMO
               </span>
             </div>
+          </Reveal>
+          <Reveal delay={0.1}>
             <h2 className="text-display-section font-display text-ink mb-4">
               Watch Audagen take a real call.
             </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
             <p className="text-body-l text-ink2 max-w-2xl mx-auto">
               A new customer calling to book an appointment. No edits, no script. This is how it sounds.
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
         {/* Phone Call Card */}
-        <Reveal delay={0.15} y={32}>
+        <Reveal delay={0.3} y={32}>
           <div
             className="
               relative rounded-[2.5rem] bg-dark text-darkInk overflow-hidden
@@ -169,6 +188,8 @@ export default function LiveCallDemo() {
               min-h-[560px]
               p-8 md:p-12
               flex flex-col
+              transition-all duration-300 ease-out
+              hover:-translate-y-1 hover:shadow-[0_40px_120px_rgba(0,0,0,0.35)]
             "
           >
             <AnimatePresence mode="wait">

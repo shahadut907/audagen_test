@@ -12,7 +12,7 @@ export default function HomePage() {
     <>
       <Nav />
       <FloatingSettingsIcon />
-      <main>
+      <main className="relative z-0">
         <Hero />
         <LiveCallDemo />
         <HowItWorks />

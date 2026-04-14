@@ -3,19 +3,7 @@
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { contact } from '@/app/_content/site';
-
-const fadeRise = {
-  hidden: { opacity: 0, y: 16 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut' as const,
-      delay: i * 0.08,
-    },
-  }),
-};
+import { Reveal } from '@/app/_components/ui/Reveal';
 
 export default function Contact() {
   const [toastVisible, setToastVisible] = useState(false);
@@ -29,46 +17,36 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 md:py-32 px-6"
+      className="py-24 md:py-32 px-6 bg-bg"
       aria-label="Contact"
     >
       <div className="max-w-3xl mx-auto text-center">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-        >
-          {/* Eyebrow */}
-          <motion.div
-            custom={0}
-            variants={fadeRise}
-            className="mb-6 inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
-          >
+        {/* Eyebrow */}
+        <Reveal delay={0}>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
             <span className="text-caption text-ink3 font-medium">
               {contact.eyebrow}
             </span>
-          </motion.div>
+          </div>
+        </Reveal>
 
-          {/* Headline */}
-          <motion.h2
-            custom={1}
-            variants={fadeRise}
-            className="text-display-section font-display text-ink mb-6"
-          >
+        {/* Headline */}
+        <Reveal delay={0.1}>
+          <h2 className="text-display-section font-display text-ink mb-6">
             {contact.headline}
-          </motion.h2>
+          </h2>
+        </Reveal>
 
-          {/* Body */}
-          <motion.p
-            custom={2}
-            variants={fadeRise}
-            className="text-body-l text-ink2 mb-10 max-w-xl mx-auto"
-          >
+        {/* Body */}
+        <Reveal delay={0.2}>
+          <p className="text-body-l text-ink2 mb-10 max-w-xl mx-auto">
             {contact.body}
-          </motion.p>
+          </p>
+        </Reveal>
 
-          {/* Email pill */}
-          <motion.div custom={3} variants={fadeRise} className="relative inline-block">
+        {/* Email pill */}
+        <Reveal delay={0.3}>
+          <div className="relative inline-block">
             <a
               href={`mailto:${contact.email}`}
               onClick={(e) => {
@@ -103,8 +81,8 @@ export default function Contact() {
               </svg>
               {contact.email}
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </Reveal>
       </div>
 
       {/* Toast notification */}

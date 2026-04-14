@@ -3,19 +3,7 @@
 import { motion } from 'framer-motion';
 import { hero } from '@/app/_content/site';
 import VoiceDemoCard from '@/app/_components/VoiceDemoCard';
-
-const fadeRise = {
-  hidden: { opacity: 0, y: 16 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut' as const,
-      delay: i * 0.08,
-    },
-  }),
-};
+import { Reveal } from '@/app/_components/ui/Reveal';
 
 function MeshGradient() {
   return (
@@ -70,94 +58,78 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative md:min-h-screen flex items-center justify-center overflow-hidden isolate"
       aria-label="Hero"
     >
       <MeshGradient />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-32 w-full">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-28 w-full">
         {/* Two-column grid on desktop, stacked on mobile */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left column — text content */}
           <div className="text-center md:text-left">
             {/* Eyebrow pill */}
-            <motion.div
-              custom={0}
-              initial="hidden"
-              animate="visible"
-              variants={fadeRise}
-              className="mb-8 inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.04)]"
-            >
-              <span className="block h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
-              <span className="text-caption text-accent font-medium">
-                {hero.eyebrow}
-              </span>
-            </motion.div>
+            <Reveal delay={0}>
+              <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                <span className="block h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
+                <span className="text-caption text-accent font-medium">
+                  {hero.eyebrow}
+                </span>
+              </div>
+            </Reveal>
 
             {/* Headline */}
-            <motion.h1
-              custom={1}
-              initial="hidden"
-              animate="visible"
-              variants={fadeRise}
-              className="text-display-hero font-display text-ink mb-6"
-            >
-              {hero.headline}
-            </motion.h1>
+            <Reveal delay={0.1}>
+              <h1 className="text-display-hero font-display text-ink mb-6">
+                {hero.headline}
+              </h1>
+            </Reveal>
 
             {/* Subheadline */}
-            <motion.p
-              custom={2}
-              initial="hidden"
-              animate="visible"
-              variants={fadeRise}
-              className="text-body-l text-ink2 max-w-2xl mb-10"
-            >
-              {hero.subhead}
-            </motion.p>
+            <Reveal delay={0.2}>
+              <p className="text-body-l text-ink2 max-w-2xl mb-10">
+                {hero.subhead}
+              </p>
+            </Reveal>
 
             {/* CTAs */}
-            <motion.div
-              custom={3}
-              initial="hidden"
-              animate="visible"
-              variants={fadeRise}
-              className="flex items-center gap-4 flex-wrap justify-center md:justify-start"
-            >
-              <button
-                onClick={handleContactClick}
-                className="
-                  rounded-full bg-ink text-white px-7 py-3.5
-                  text-base font-medium
-                  shadow-[0_0_80px_rgba(255,90,31,0.35)]
-                  transition-all duration-200 ease-out
-                  hover:bg-ink/90 hover:shadow-[0_0_100px_rgba(255,90,31,0.45)]
-                  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent
-                "
-              >
-                {hero.ctaPrimary}
-              </button>
+            <Reveal delay={0.3}>
+              <div className="flex items-center gap-4 flex-wrap justify-center md:justify-start">
+                <button
+                  onClick={handleContactClick}
+                  className="
+                    rounded-full bg-ink text-white px-7 py-3.5
+                    text-base font-medium
+                    shadow-[0_0_80px_rgba(255,90,31,0.35)]
+                    transition-all duration-200 ease-out
+                    hover:bg-ink/90 hover:shadow-[0_0_100px_rgba(255,90,31,0.45)]
+                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent
+                  "
+                >
+                  {hero.ctaPrimary}
+                </button>
 
-              <button
-                onClick={handleHowItWorksClick}
-                className="
-                  rounded-full bg-white text-ink px-7 py-3.5
-                  text-base font-medium
-                  border border-line
-                  transition-all duration-200 ease-out
-                  hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)]
-                  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent
-                "
-              >
-                {hero.ctaSecondary}
-              </button>
-            </motion.div>
+                <button
+                  onClick={handleHowItWorksClick}
+                  className="
+                    rounded-full bg-white text-ink px-7 py-3.5
+                    text-base font-medium
+                    border border-line
+                    transition-all duration-200 ease-out
+                    hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)]
+                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent
+                  "
+                >
+                  {hero.ctaSecondary}
+                </button>
+              </div>
+            </Reveal>
           </div>
 
           {/* Right column — Voice Demo Card */}
-          <div className="flex justify-center md:justify-end">
+          <Reveal delay={0.4} className="flex justify-center md:justify-end">
             <VoiceDemoCard />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

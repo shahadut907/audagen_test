@@ -48,12 +48,21 @@ const config: Config = {
           '50%': { transform: 'scale(1.15)', opacity: '0.3' },
           '100%': { transform: 'scale(1)', opacity: '0.6' },
         },
+        'pulse-glow': {
+          '0%, 100%': {
+            boxShadow: '0 0 0 0 rgba(255, 90, 31, 0.4), 0 0 30px rgba(255, 90, 31, 0.3)',
+          },
+          '50%': {
+            boxShadow: '0 0 0 12px rgba(255, 90, 31, 0), 0 0 50px rgba(255, 90, 31, 0.5)',
+          },
+        },
       },
       animation: {
         'drift-1': 'drift-1 28s ease-in-out infinite',
         'drift-2': 'drift-2 32s ease-in-out infinite',
         'drift-3': 'drift-3 36s ease-in-out infinite',
         'pulse-ring': 'pulse-ring 3s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 2.5s ease-in-out infinite',
       },
     },
   },

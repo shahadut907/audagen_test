@@ -130,6 +130,8 @@ export default function VoiceDemoCard() {
         p-7 md:p-9 
         max-w-md w-full
         shadow-[0_0_80px_rgba(255,90,31,0.2),0_20px_60px_rgba(0,0,0,0.08)]
+        transition-all duration-300 ease-out
+        hover:-translate-y-1 hover:shadow-[0_0_80px_rgba(255,90,31,0.25),0_20px_60px_rgba(0,0,0,0.12)]
       "
     >
       {/* Eyebrow */}
@@ -180,17 +182,12 @@ export default function VoiceDemoCard() {
             disabled:opacity-50 disabled:cursor-not-allowed
             ${isPlaying
               ? 'bg-ink text-white shadow-[0_0_40px_rgba(255,90,31,0.4)]'
-              : 'bg-ink text-white shadow-[0_0_40px_rgba(255,90,31,0.3)]'
+              : playbackState === 'loading'
+                ? 'bg-ink text-white shadow-[0_0_40px_rgba(255,90,31,0.3)]'
+                : 'bg-ink text-white animate-pulse-glow motion-reduce:animate-none'
             }
           `}
         >
-          {/* Breathing glow ring when idle */}
-          {!isPlaying && playbackState !== 'loading' && (
-            <span
-              className="absolute inset-0 rounded-full bg-accent/20 animate-pulse-ring motion-reduce:animate-none"
-              aria-hidden="true"
-            />
-          )}
           {playbackState === 'loading' ? (
             <Loader2 className="w-6 h-6 animate-spin" />
           ) : (
