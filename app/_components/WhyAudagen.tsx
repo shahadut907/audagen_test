@@ -126,6 +126,7 @@ function ComparisonColumn({
 export default function WhyAudagen() {
   return (
     <section
+      id="why-audagen"
       className="relative py-20 md:py-32 overflow-hidden"
       aria-label="Why Audagen"
     >

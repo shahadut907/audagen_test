@@ -193,7 +193,52 @@ export const footer = {
   closingHeadline: 'Ready to stop missing customers?',
   closingSub: 'Reach out and we will get back to you within one business day.',
   email: 'hello@audagen.com',
-  wordmark: 'Audagen',
-  tagline: 'AI Voice Receptionists',
+
+  brand: {
+    wordmark: 'Audagen',
+    description:
+      'AI voice receptionists for service businesses. Built to make sure your phone is always answered.',
+  },
+
+  linkColumns: [
+    {
+      header: 'PRODUCT',
+      links: [
+        { label: 'How it works', href: '#how-it-works' },
+        { label: 'Why Audagen', href: '#why-audagen' },
+        { label: 'Features', href: '#features' },
+      ],
+    },
+    {
+      header: 'COMPANY',
+      links: [
+        { label: 'Contact', href: 'mailto:hello@audagen.com' },
+        { label: 'Follow us', href: 'https://x.com/audagen', external: true },
+      ],
+    },
+    {
+      header: 'LEGAL',
+      links: [
+        { label: 'Privacy Policy', href: '/privacy' },
+        { label: 'Terms of Service', href: '/terms' },
+        { label: 'Cookie Policy', href: '/cookies' },
+      ],
+    },
+  ],
+
+  social: [
+    {
+      platform: 'x',
+      label: 'Follow Audagen on X',
+      href: 'https://x.com/audagen',
+    },
+    {
+      platform: 'linkedin',
+      label: 'Follow Audagen on LinkedIn',
+      href: 'https://linkedin.com/company/audagen',
+    },
+  ],
+
   copyright: '\u00A9 2026 Audagen. All rights reserved.',
+  metaTagline: 'Made for service businesses everywhere.',
 } as const;

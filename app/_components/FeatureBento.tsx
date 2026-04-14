@@ -18,6 +18,7 @@ function PulseAnimation() {
 export default function FeatureBento() {
   return (
     <section
+      id="features"
       className="py-20 md:py-28 px-6 bg-bg"
       aria-label="Capabilities"
     >

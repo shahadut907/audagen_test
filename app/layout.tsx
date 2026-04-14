@@ -16,11 +16,11 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: 'Audagen — AI Voice Receptionists for Service Businesses',
+  title: 'Audagen',
   description:
     'Audagen builds AI receptionists that answer calls, book appointments, and handle customers around the clock. Voice AI that sounds human.',
   openGraph: {
-    title: 'Audagen — AI Voice Receptionists',
+    title: 'Audagen | AI Voice Receptionists',
     description:
       'Voice AI that sounds human. Calls answered, appointments booked, customers handled — around the clock.',
     type: 'website',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Audagen — AI Voice Receptionists',
+    title: 'Audagen | AI Voice Receptionists',
     description:
       'Voice AI that sounds human. Calls answered, appointments booked, customers handled — around the clock.',
   },
