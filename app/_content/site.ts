@@ -190,9 +190,6 @@ export const whyAudagen = {
 } as const;
 
 export const footer = {
-  closingHeadline: 'Ready to stop missing customers?',
-  closingSub: 'Reach out and we will get back to you within one business day.',
-  email: 'hello@audagen.com',
 
   brand: {
     wordmark: 'Audagen',
@@ -231,6 +228,11 @@ export const footer = {
       platform: 'x',
       label: 'Follow Audagen on X',
       href: 'https://x.com/audagen',
+    },
+    {
+      platform: 'instagram',
+      label: 'Follow Audagen on Instagram',
+      href: 'https://instagram.com/audagen',
     },
     {
       platform: 'linkedin',
