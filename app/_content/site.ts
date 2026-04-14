@@ -127,8 +127,73 @@ export const contact = {
   email: 'hello@audagen.com',
 } as const;
 
+export const whyAudagen = {
+  eyebrow: 'WHY AUDAGEN',
+  headline: 'Built differently. On purpose.',
+  sub: 'We are not a call center. We are not a generic chatbot. We are an AI receptionist designed for one job and one job only — making sure your business never misses a customer.',
+
+  pillars: [
+    {
+      number: '01 — FOCUS',
+      title: 'We do one thing. Voice.',
+      body: 'While other AI companies build everything from chatbots to image generators, we build voice receptionists. That is it. Every decision we make, every model we tune, every line of code is in service of one thing: making your phone feel like it is always answered.',
+      variant: 'large-dark' as const,
+    },
+    {
+      number: '02 — VOICE',
+      title: 'Sounds human. For real.',
+      body: 'Our agents pause, breathe, and react like a real person. Customers do not realize they are talking to AI until you tell them.',
+      variant: 'medium-light' as const,
+    },
+    {
+      number: '03 — SPEED',
+      title: 'Live in 48 hours.',
+      body: 'Forward your line, share your business details, go live in two days. No long onboarding. No engineering team required.',
+      variant: 'medium-light' as const,
+    },
+    {
+      number: '04 — PRICING',
+      title: 'What you see is what you pay.',
+      body: 'Flat monthly pricing. No per-minute charges that surprise you. No enterprise contact us games. You will know exactly what Audagen costs before you say yes.',
+      variant: 'large-glow' as const,
+    },
+  ],
+
+  manifesto: {
+    eyebrow: 'OUR MANIFESTO',
+    quote: 'Every missed call is a missed conversation. Every missed conversation is a missed customer. We built Audagen because the people who call your business deserve a real answer — and you deserve to be there for them, even when you cannot be.',
+    attribution: 'THE AUDAGEN TEAM',
+  },
+
+  comparison: {
+    them: {
+      caption: 'THE OLD WAY',
+      title: 'Generic call centers and clunky bots',
+      points: [
+        'Voicemail after hours and during lunch',
+        'Bored receptionists in a call center halfway around the world',
+        'Robotic chatbots that frustrate customers into hanging up',
+        'Per-minute pricing that punishes you for being busy',
+      ],
+    },
+    us: {
+      caption: 'THE AUDAGEN WAY',
+      title: 'An AI receptionist that actually feels right',
+      points: [
+        'Always available. 24/7/365. No exceptions.',
+        'Trained on your business. Speaks like your best front-desk hire.',
+        'Natural conversation. Customers stay engaged, not frustrated.',
+        'Flat pricing. The more calls you take, the better your ROI.',
+      ],
+    },
+  },
+} as const;
+
 export const footer = {
+  closingHeadline: 'Ready to stop missing customers?',
+  closingSub: 'Reach out and we will get back to you within one business day.',
+  email: 'hello@audagen.com',
   wordmark: 'Audagen',
-  tagline: 'AI VOICE RECEPTIONISTS',
+  tagline: 'AI Voice Receptionists',
   copyright: '\u00A9 2026 Audagen. All rights reserved.',
 } as const;
