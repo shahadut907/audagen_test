@@ -30,24 +30,10 @@ const socialIconMap: Record<string, ReactNode> = {
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-line bg-bg pt-24 pb-0">
-      {/* Background gradient wash */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        {/* Big peach blob bottom-left */}
-        <div
-          className="absolute bottom-[-30%] left-[-10%] w-[60vw] h-[60vw] max-w-[800px]
-                      rounded-full bg-accent3 opacity-50 blur-[140px]"
-        />
-        {/* Warmer orange blob bottom-right */}
-        <div
-          className="absolute bottom-[-20%] right-[-15%] w-[55vw] h-[55vw] max-w-[700px]
-                      rounded-full bg-accent2 opacity-35 blur-[150px]"
-        />
-      </div>
-
-      {/* ── Top row: closing CTA (unchanged) ── */}
+    <footer className="relative overflow-hidden border-t border-line bg-bg">
+      {/* ── Block 1: Closing CTA (unchanged) ── */}
       <Reveal>
-        <div className="max-w-4xl mx-auto text-center px-6 mb-20">
+        <div className="max-w-4xl mx-auto text-center px-6 pt-24 pb-16">
           <p className="font-display text-3xl md:text-5xl text-ink leading-tight">
             {footer.closingHeadline}
           </p>
@@ -65,20 +51,9 @@ export default function Footer() {
         </div>
       </Reveal>
 
-      {/* ── GIANT WORDMARK ── */}
-      <div className="relative w-full select-none -mb-6 md:-mb-10 overflow-hidden">
-        <h2
-          className="font-display text-ink/[0.08] leading-none text-center tracking-tight whitespace-nowrap"
-          style={{ fontSize: 'clamp(8rem, 26vw, 24rem)' }}
-          aria-hidden="true"
-        >
-          {footer.brand.wordmark}
-        </h2>
-      </div>
-
-      {/* ── Row A: Brand + Link columns + Social ── */}
-      <div className="border-t border-line/60">
-        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+      {/* ── Block 2: Link Row (moved up, above wordmark) ── */}
+      <div className="border-b border-line/40">
+        <div className="max-w-7xl mx-auto px-6 py-14 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           {/* Brand block */}
           <div className="md:col-span-4">
             <span className="font-display text-2xl text-ink block mb-3">
@@ -168,8 +143,36 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Row B: Bottom strip ── */}
-      <div className="border-t border-line/60">
+      {/* ── Block 3: Giant Wordmark with scoped gradient wash ── */}
+      <div className="relative w-full overflow-hidden select-none">
+        {/* Gradient wash background — subtle warm peach sunrise */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <div
+            className="absolute left-1/2 -translate-x-1/2 bottom-[-20%]
+                       w-[90vw] h-[50vw] max-w-[1400px] rounded-full
+                       bg-accent3 opacity-40 blur-[140px]"
+          />
+          <div
+            className="absolute left-[20%] bottom-[-30%]
+                       w-[50vw] h-[40vw] max-w-[900px] rounded-full
+                       bg-accent opacity-15 blur-[160px]"
+          />
+        </div>
+
+        {/* Wordmark container with dedicated breathing room */}
+        <div className="py-16 md:py-24 px-4">
+          <h2
+            className="font-display text-ink leading-[0.85] text-center tracking-tight whitespace-nowrap"
+            style={{ fontSize: 'clamp(7rem, 24vw, 22rem)' }}
+            aria-hidden="true"
+          >
+            {footer.brand.wordmark}
+          </h2>
+        </div>
+      </div>
+
+      {/* ── Block 4: Bottom meta strip ── */}
+      <div className="border-t border-line/60 relative z-10">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-ink3 text-xs uppercase tracking-[0.12em]">
             {footer.copyright}
